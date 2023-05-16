@@ -298,9 +298,9 @@ private val btn = listOf(
         Button("-",actions = UserActions.Operation(AllOperation.Subtract))),
 
     listOf(
-        Button("1", actions = UserActions.Number(1)),
-        Button("2", actions = UserActions.Number(2)),
-        Button("3", actions = UserActions.Number(3)),
+        numericButton(1),
+        numericButton(2),
+        numericButton(3),
         Button("+", actions = UserActions.Operation(AllOperation.Add))
     ),
 
@@ -319,3 +319,6 @@ data class Button(
     val weight: Float = 1f,
     val actions: UserActions = UserActions.Clean,
 )
+
+fun numericButton(number: Int): Button =
+    Button(number.toString(), 1f, UserActions.Number(number))
